@@ -1,17 +1,43 @@
 .j-ng2-table{
+    padding-right: 40px;
+}
+.j-ng2-table-container{
     border: 1px solid #ddd;
+    display: flex;
 }
-.j-ng2-table tr{
-    border-bottom: 1px solid #ddd;
+.pinned-data, .not-pinned-data{
+    float: left;
 }
-.j-ng2-table th{
+.not-pinned-data{
+    overflow-x: auto;
+}
+.pinned-data{
+    box-shadow: 8px 0px 25px -9px rgba(0,0,0,0.4);
+    position: relative;
+}
+.j-ng2-table-container .tr:not(:empty){
+    display: table-row;
+    transition: background 0.1s linear;
+    background: #fff;
+}
+.j-ng2-table-container .tr:hover{
+    display: table-row;
+    background: #ddd;
+}
+.j-ng2-table-container .th:not(:empty){
     padding: 10px 20px;
     border-right: 1px solid #ddd;
+    display: table-cell;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    font-weight: bold;
 }
-.j-ng2-table th .fa{
+.j-ng2-table-container .th .fa{
     cursor: pointer
 }
-.j-ng2-table td{    
+.j-ng2-table-container .td:not(:empty){    
     padding: 5px 15px;
     border-right: 1px solid #ddd;
+    display: table-cell;
+    border-bottom: 1px solid #ddd; 
 }

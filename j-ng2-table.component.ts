@@ -21,7 +21,8 @@ export class JNG2TableComponent implements OnInit {
         for(var i = 0 ; i < this.cols.length ; i++){
             this.cols[i] = {
                   name : this.cols[i],
-                  sort : null
+                  sort : null,
+                  pinned: i==1 || i==0?true:false,
             }
         }
     }
