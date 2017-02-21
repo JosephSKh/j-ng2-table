@@ -22,7 +22,9 @@ export class JNG2TableComponent implements OnInit {
             this.cols[i] = {
                   name : this.cols[i],
                   sort : null,
-                  pinned: i==1 || i==0?true:false,
+                  pinned: false,
+                  visible: true,
+                  order: i,
             }
         }
     }
@@ -45,5 +47,16 @@ export class JNG2TableComponent implements OnInit {
             else if (a[this.cols[index].name] > b[this.cols[index].name]) return sortBit;
             else return 0;
         });
+    }
+
+    moveLeft(index : number){
+        var temp = this.cols[index];
+        this.cols[index] = this.cols[index-1];
+        this.cols[index-1] = temp;
+    }
+    moveRight(index : number){
+        var temp = this.cols[index];
+        this.cols[index] = this.cols[index+1];
+        this.cols[index+1] = temp;
     }
 }
