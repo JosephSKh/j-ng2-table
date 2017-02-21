@@ -28,7 +28,7 @@ j-ng2-table is an open source table library designed for angular 2 that supports
     
 **your-component.component.html**
     
-    <j-ng2-table [data]="data"></j-ng2-table>
+    <j-ng2-table [data]="data" [options]="options"></j-ng2-table>
         
 **your-component.component.ts**
     
@@ -39,6 +39,9 @@ j-ng2-table is an open source table library designed for angular 2 that supports
       styleUrls: ['./app.component.css']
     })
     export class AppComponent implements OnInit {
+      options = {
+        itemsPerPage : 10
+      };
       data = [    
         {"name":"Ram", "email":"ram@gmail.com", "age":23},    
         {"name":"Shyam", "email":"shyam23@gmail.com", "age":28},  
@@ -46,3 +49,6 @@ j-ng2-table is an open source table library designed for angular 2 that supports
         {"name":"Bob", "email":"bob32@gmail.com", "age":41}
       ];
     }
+
+###Options:
+**itemsPerPage**: Number of rows per page
