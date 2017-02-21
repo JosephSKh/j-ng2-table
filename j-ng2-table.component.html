@@ -32,6 +32,13 @@
                     </div>
                 </div>
             </div>
+            <div class="tr">
+                <div [ngClass]="{'th' : col['pinned'] && col['visible']}" *ngFor="let col of cols; let i = index;">
+                    <div *ngIf="col['pinned'] && col['visible']">
+                        <input (keyup)="filter(col['name'])" [(ngModel)]="filters[col.name]"/>
+                    </div>
+                </div>
+            </div>
             <div class="tr" *ngFor="let row of data; let i = index">
                 <div [ngClass]="{'td' : col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage}" *ngFor="let col of cols">
                     <div *ngIf="col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage">
@@ -52,6 +59,13 @@
                     </div>
                 </div>
             </div>
+            <div class="tr">
+                <div [ngClass]="{'th' : !col['pinned'] && col['visible']}" *ngFor="let col of cols; let i = index;">
+                    <div *ngIf="!col['pinned'] && col['visible']">
+                        <input (keyup)="filter(col['name'])" [(ngModel)]="filters[col.name]"/>
+                    </div>
+                </div>
+            </div>
             <div class="tr" *ngFor="let row of data; let i = index;">
                 <div [ngClass]="{'td' : !col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage}" *ngFor="let col of cols">
                     <div *ngIf="!col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage">
@@ -62,8 +76,16 @@
         </div>
     </div>
     <div class="table-info">
-        Total rows: {{data.length}}
-        <div class="pages-holder">
+        <span>
+            Total rows: {{cachedData.length}}
+        </span>
+        <span *ngIf="data.length != cachedData.length">
+            &nbsp;|&nbsp;
+        </span>
+        <span *ngIf="data.length != cachedData.length">
+            Filtered rows: {{data.length}}
+        </span>
+        <div class="pages-holder" *ngIf="options.numberOfPages!=0">
             <span *ngFor="let page of pages" [ngClass]="{'selected' : page == curPage}" (click)="setPage(page)">{{page}}</span>
         </div>
     </div>

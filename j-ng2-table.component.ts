@@ -10,34 +10,41 @@ export class JNG2TableComponent implements OnInit {
     constructor() { }
 
     @Input() data;
-    shownData;
-    options = {
-        itemsPerPage : 10,
-        numberOfPages: 0,
-    }
+    @Input() options;
+    cachedData: any;
     cols : any[] = [];
     curPage: number;
     pages : number[] = [];
+    filters : any = {};
 
     ngOnInit() {
+        this.cachedData = this.data;
+        if(!this.options){
+            this.options={
+                numberOfPages:0,
+                itemsPerPage:this.cachedData.length
+            }
+        }
         this.preparePages();
         this.setPage(1);
         this.prepareColumns(this.data);
     }
 
     preparePages(){
-        if(this.options.itemsPerPage){
-            this.options.numberOfPages = this.data.length/this.options.itemsPerPage;
-            if(this.options.numberOfPages%1!=0){
-                this.options.numberOfPages = (this.options.numberOfPages-(this.options.numberOfPages%1))+1;
+        this.pages = [];
+        if(this.options['itemsPerPage']!=this.cachedData.length){
+            this.options['numberOfPages'] = this.data.length/this.options['itemsPerPage'];
+            if(this.options['numberOfPages']%1!=0){
+                this.options['numberOfPages'] = (this.options['numberOfPages']-(this.options['numberOfPages']%1))+1;
             }
         }
-        for(var i = 1 ; i <= this.options.numberOfPages ; i++){
+        for(var i = 1 ; i <= this.options['numberOfPages'] ; i++){
             this.pages.push(i);
         }
     }
 
     setPage(page: number){
+        this.preparePages();
         this.curPage = page;
     }
 
@@ -131,5 +138,19 @@ export class JNG2TableComponent implements OnInit {
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+    }
+
+    filter(colName : string){
+        this.data = this.cachedData;
+        for(var i = 0 ; i < Object.keys(this.filters).length ; i++){
+            var key = Object.keys(this.filters)[i];
+            if(this.filters[key] != ""){
+                this.data = this.data.filter(row => {
+                    if (row[key].toString().toLowerCase().indexOf(this.filters[key].toString().toLowerCase()) > -1) 
+                        return row;
+                });
+            }
+        }
+        this.setPage(1);
     }
 }
