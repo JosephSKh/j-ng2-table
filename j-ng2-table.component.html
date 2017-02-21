@@ -1,19 +1,67 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="stylesheet" rel="stylesheet"
 />
 
-<table class="j-ng2-table" *ngIf="data">
-    <thead>
-        <tr>
-            <th *ngFor="let col of cols">
-                <span class="fa" [ngClass]="{'fa-caret-down': col['sort']==true, 'fa-caret-up': col['sort']==false, 'fa-minus': col['sort']==null}"
-                    (click)="sortClicked(col)"></span>
-                    {{col['name']}}
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let row of data">
-            <td *ngFor="let col of cols">{{row[col['name']]}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="j-ng2-table" *ngIf="data">
+    <div class="settings">
+        <button class="settings-btn">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="settings-contaienr">
+            <li>
+                Download: 
+                <i (click)="txtDownload()" class="fa fa-file-text-o" aria-hidden="true"></i>
+                <i (click)="csvDownload()" class="fa fa-file-excel-o" aria-hidden="true"></i>
+            </li>
+            <li *ngFor="let col of cols">
+                <i class="fa fa-thumb-tack" [ngClass]="{'hidden': !col['pinned']}" aria-hidden="true" (click)="col['pinned']=!col['pinned']"></i>
+                <input type="checkbox" [name]="col['name']" [(ngModel)]="col['visible']"/>
+                <label [for]="col['name']">{{col['name']}}</label>
+            </li>
+        </ul>
+    </div>
+    <div class="j-ng2-table-container">
+        <div class="pinned-data">
+            <div class="tr">
+                <div [ngClass]="{'th' : col['pinned'] && col['visible']}" *ngFor="let col of cols; let i = index;">
+                    <div *ngIf="col['pinned'] && col['visible']">
+                        <span class="fa" [ngClass]="{'fa-caret-down': col['sort']==true, 'fa-caret-up': col['sort']==false, 'fa-minus': col['sort']==null}"
+                            (click)="sortClicked(col)"></span>
+                            {{col['name']}}
+                            <span *ngIf="i!=0" (click)="moveLeft(i)" class="fa fa-caret-left"></span>
+                            <span *ngIf="i!=cols.length-1" (click)="moveRight(i)" class="fa fa-caret-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr" *ngFor="let row of data">
+                <div [ngClass]="{'td' : col['pinned'] && col['visible']}" *ngFor="let col of cols">
+                    <div *ngIf="col['pinned'] && col['visible']">
+                        {{row[col['name']]}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="not-pinned-data">
+            <div class="tr">
+                <div [ngClass]="{'th' : !col['pinned'] && col['visible']}" *ngFor="let col of cols; let i = index;">
+                    <div *ngIf="!col['pinned'] && col['visible']">
+                        <span class="fa" [ngClass]="{'fa-caret-down': col['sort']==true, 'fa-caret-up': col['sort']==false, 'fa-minus': col['sort']==null}"
+                            (click)="sortClicked(col)"></span>
+                            {{col['name']}}
+                            <span *ngIf="i!=0" (click)="moveLeft(i)" class="fa fa-caret-left"></span>
+                            <span *ngIf="i!=cols.length-1" (click)="moveRight(i)" class="fa fa-caret-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr" *ngFor="let row of data">
+                <div [ngClass]="{'td' : !col['pinned'] && col['visible']}" *ngFor="let col of cols">
+                    <div *ngIf="!col['pinned'] && col['visible']">
+                        {{row[col['name']]}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-info">
+        Total rows: {{data.length}}
+    </div>
+</div>
