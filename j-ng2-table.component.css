@@ -1,96 +1,17 @@
-.j-ng2-table *{
-    transition: all 0.1s linear;
-}
 .j-ng2-table{
-    padding-right: 40px;
-    position: relative;
-}
-.settings{
-    position: relative;
-    float: right
-}
-.settings:hover .settings-contaienr{
-    display: block;
-}
-.settings-btn{
-    background: #fff;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    float: right;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    border-top-right-radius: 5px;
-    box-shadow: inset 0px 0px 14px rgba(0,0,0,0.1);
-    transition: background 0.1s linear;
-    position: relative;
-}
-.settings-contaienr .fa-thumb-tack{
-    cursor: pointer
-}
-.fa-thumb-tack.hidden{
-    opacity: 0.2;
-}
-.settings-contaienr{
-    padding: 0;
-    list-style: none;
-    position: absolute;
-    white-space: nowrap;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    border-top-right-radius: 0;
-    max-height: 300px;
-    overflow-y: auto;
-    min-width: 160px;
-    display: none;
-}
-.settings-contaienr li{
-    padding: 5px 10px;
-    border-bottom: 1px solid #eee;
-}
-.settings-btn:hover{
-    background: #ccc;
-}
-.j-ng2-table-container{
     border: 1px solid #ddd;
-    display: flex;
 }
-.pinned-data, .not-pinned-data{
-    float: left;
+.j-ng2-table tr{
+    border-bottom: 1px solid #ddd;
 }
-.not-pinned-data{
-    overflow-x: auto;
-}
-.pinned-data{
-    box-shadow: 8px 0px 25px -9px rgba(0,0,0,0.4);
-    position: relative;
-}
-.j-ng2-table-container .tr:not(:empty){
-    display: table-row;
-    transition: background 0.1s linear;
-    background: #fff;
-}
-.j-ng2-table-container .tr:hover{
-    display: table-row;
-    background: #ddd;
-}
-.j-ng2-table-container .th:not(:empty){
+.j-ng2-table th{
     padding: 10px 20px;
     border-right: 1px solid #ddd;
-    display: table-cell;
-    border-bottom: 1px solid #ddd;
-    white-space: nowrap;
-    font-weight: bold;
 }
-.j-ng2-table-container .th .fa{
+.j-ng2-table th .fa{
     cursor: pointer
 }
-.j-ng2-table-container .td:not(:empty){    
+.j-ng2-table td{    
     padding: 5px 15px;
     border-right: 1px solid #ddd;
-    display: table-cell;
-    border-bottom: 1px solid #ddd; 
 }
