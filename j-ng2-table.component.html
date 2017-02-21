@@ -26,15 +26,15 @@
                     <div *ngIf="col['pinned'] && col['visible']">
                         <span class="fa" [ngClass]="{'fa-caret-down': col['sort']==true, 'fa-caret-up': col['sort']==false, 'fa-minus': col['sort']==null}"
                             (click)="sortClicked(col)"></span>
-                            {{col['name']}}
+                            <span (click)="sortClicked(col)">{{col['name']}}</span>
                             <span *ngIf="i!=0" (click)="moveLeft(i)" class="fa fa-caret-left"></span>
                             <span *ngIf="i!=cols.length-1" (click)="moveRight(i)" class="fa fa-caret-right"></span>
                     </div>
                 </div>
             </div>
-            <div class="tr" *ngFor="let row of data">
-                <div [ngClass]="{'td' : col['pinned'] && col['visible']}" *ngFor="let col of cols">
-                    <div *ngIf="col['pinned'] && col['visible']">
+            <div class="tr" *ngFor="let row of data; let i = index">
+                <div [ngClass]="{'td' : col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage}" *ngFor="let col of cols">
+                    <div *ngIf="col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage">
                         {{row[col['name']]}}
                     </div>
                 </div>
@@ -46,15 +46,15 @@
                     <div *ngIf="!col['pinned'] && col['visible']">
                         <span class="fa" [ngClass]="{'fa-caret-down': col['sort']==true, 'fa-caret-up': col['sort']==false, 'fa-minus': col['sort']==null}"
                             (click)="sortClicked(col)"></span>
-                            {{col['name']}}
+                            <span (click)="sortClicked(col)">{{col['name']}}</span>
                             <span *ngIf="i!=0" (click)="moveLeft(i)" class="fa fa-caret-left"></span>
                             <span *ngIf="i!=cols.length-1" (click)="moveRight(i)" class="fa fa-caret-right"></span>
                     </div>
                 </div>
             </div>
-            <div class="tr" *ngFor="let row of data">
-                <div [ngClass]="{'td' : !col['pinned'] && col['visible']}" *ngFor="let col of cols">
-                    <div *ngIf="!col['pinned'] && col['visible']">
+            <div class="tr" *ngFor="let row of data; let i = index;">
+                <div [ngClass]="{'td' : !col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage}" *ngFor="let col of cols">
+                    <div *ngIf="!col['pinned'] && col['visible'] && i < curPage * options.itemsPerPage && i >= (curPage * options.itemsPerPage)-options.itemsPerPage">
                         {{row[col['name']]}}
                     </div>
                 </div>
@@ -63,5 +63,8 @@
     </div>
     <div class="table-info">
         Total rows: {{data.length}}
+        <div class="pages-holder">
+            <span *ngFor="let page of pages" [ngClass]="{'selected' : page == curPage}" (click)="setPage(page)">{{page}}</span>
+        </div>
     </div>
 </div>

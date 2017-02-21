@@ -1,6 +1,3 @@
-.j-ng2-table *{
-    transition: all 0.1s linear;
-}
 .j-ng2-table{
     padding-right: 40px;
     position: relative;
@@ -46,6 +43,7 @@
     overflow-y: auto;
     min-width: 160px;
     display: none;
+    margin: 0;
 }
 .settings-contaienr li{
     padding: 5px 10px;
@@ -84,6 +82,14 @@
     border-bottom: 1px solid #ddd;
     white-space: nowrap;
     font-weight: bold;
+         -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+            cursor: pointer;
+    transition: all 0.1s linear;
 }
 .j-ng2-table-container .th .fa{
     cursor: pointer;
@@ -100,4 +106,21 @@
     border-right: 1px solid #ddd;
     display: table-cell;
     border-bottom: 1px solid #ddd; 
+}
+.j-ng2-table .table-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: calc(100% - 62px);
+    border-top: none;
+}
+.j-ng2-table .pages-holder{
+    float: right;
+}
+.j-ng2-table .pages-holder span{
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+.j-ng2-table .pages-holder span.selected{
+    background: #ddd;
 }

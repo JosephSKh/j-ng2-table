@@ -10,10 +10,35 @@ export class JNG2TableComponent implements OnInit {
     constructor() { }
 
     @Input() data;
+    shownData;
+    options = {
+        itemsPerPage : 10,
+        numberOfPages: 0,
+    }
     cols : any[] = [];
+    curPage: number;
+    pages : number[] = [];
 
     ngOnInit() {
+        this.preparePages();
+        this.setPage(1);
         this.prepareColumns(this.data);
+    }
+
+    preparePages(){
+        if(this.options.itemsPerPage){
+            this.options.numberOfPages = this.data.length/this.options.itemsPerPage;
+            if(this.options.numberOfPages%1!=0){
+                this.options.numberOfPages = (this.options.numberOfPages-(this.options.numberOfPages%1))+1;
+            }
+        }
+        for(var i = 1 ; i <= this.options.numberOfPages ; i++){
+            this.pages.push(i);
+        }
+    }
+
+    setPage(page: number){
+        this.curPage = page;
     }
 
     prepareColumns(data: any[]){
