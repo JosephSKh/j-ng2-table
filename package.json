@@ -1,0 +1,28 @@
+{
+  "name": "j-ng2-table",
+  "version": "0.1.0",
+  "description": "\"j-ng2-table is an open source table library designed for angular 2 that supports a lot of features such as pinning, toggleing, sorting, filtering\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosephSKh/j-ng2-table.git"
+  },
+  "keywords": [
+    "ng2",
+    "table",
+    "angular2",
+    "dynamic",
+    "toggle",
+    "pin",
+    "filter"
+  ],
+  "author": "Joseph Safwat Khella",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JosephSKh/j-ng2-table/issues"
+  },
+  "homepage": "https://github.com/JosephSKh/j-ng2-table#readme"
+}

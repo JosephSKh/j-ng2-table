@@ -1,0 +1,19 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="stylesheet" rel="stylesheet"
+/>
+
+<table class="j-ng2-table" *ngIf="data">
+    <thead>
+        <tr>
+            <th *ngFor="let col of cols">
+                <span class="fa" [ngClass]="{'fa-caret-down': col['sort']==true, 'fa-caret-up': col['sort']==false, 'fa-minus': col['sort']==null}"
+                    (click)="sortClicked(col)"></span>
+                    {{col['name']}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let col of cols">{{row[col['name']]}}</td>
+        </tr>
+    </tbody>
+</table>

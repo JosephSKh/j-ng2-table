@@ -1,0 +1,17 @@
+.j-ng2-table{
+    border: 1px solid #ddd;
+}
+.j-ng2-table tr{
+    border-bottom: 1px solid #ddd;
+}
+.j-ng2-table th{
+    padding: 10px 20px;
+    border-right: 1px solid #ddd;
+}
+.j-ng2-table th .fa{
+    cursor: pointer
+}
+.j-ng2-table td{    
+    padding: 5px 15px;
+    border-right: 1px solid #ddd;
+}
