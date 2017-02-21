@@ -21,7 +21,10 @@ export class JNG2TableComponent implements OnInit {
         for(var i = 0 ; i < this.cols.length ; i++){
             this.cols[i] = {
                   name : this.cols[i],
-                  sort : null
+                  sort : null,
+                  pinned: false,
+                  visible: true,
+                  order: i,
             }
         }
     }
@@ -44,5 +47,64 @@ export class JNG2TableComponent implements OnInit {
             else if (a[this.cols[index].name] > b[this.cols[index].name]) return sortBit;
             else return 0;
         });
+    }
+
+    moveLeft(index : number){
+        var temp = this.cols[index];
+        this.cols[index] = this.cols[index-1];
+        this.cols[index-1] = temp;
+    }
+    moveRight(index : number){
+        var temp = this.cols[index];
+        this.cols[index] = this.cols[index+1];
+        this.cols[index+1] = temp;
+    }
+
+    csvDownload(){
+        var csv = [];
+        for(var r = -1 ; r < this.data.length ; r++){
+            var row = "";
+            if(r==-1){
+                for(var c = 0 ; c < this.cols.length ; c++){
+                    row+=this.cols[c].name+",";
+                }
+            }else{
+                for(var i = 0 ; i < this.cols.length ; i++){
+                    row += this.data[r][this.cols[i].name]+",";
+                }
+            }
+            row+= "\r\n";
+            csv.push(row);
+        }
+        var a = window.document.createElement('a');
+        a.href = window.URL.createObjectURL(new Blob(csv, {type: 'text/csv'}));
+        a.download = 'j-ng2-dropdown-data.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    txtDownload(){
+        var csv = [];
+        for(var r = -1 ; r < this.data.length ; r++){
+            var row = "";
+            if(r==-1){
+                for(var c = 0 ; c < this.cols.length ; c++){
+                    row+=this.cols[c].name+",";
+                }
+            }else{
+                for(var i = 0 ; i < this.cols.length ; i++){
+                    row += this.data[r][this.cols[i].name]+",";
+                }
+            }
+            row+= "\r\n";
+            csv.push(row);
+        }
+        var a = window.document.createElement('a');
+        a.href = window.URL.createObjectURL(new Blob(csv, {type: 'text/plain'}));
+        a.download = 'j-ng2-dropdown-data.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     }
 }
