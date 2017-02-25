@@ -8,9 +8,14 @@
         </button>
         <ul class="settings-contaienr">
             <li>
-                Download: 
+                Download all: 
                 <i (click)="txtDownload()" class="fa fa-file-text-o" aria-hidden="true"></i>
                 <i (click)="csvDownload()" class="fa fa-file-excel-o" aria-hidden="true"></i>
+            </li>
+            <li *ngIf="data.length != cachedData.length">
+                Download filtered: 
+                <i (click)="txtDownloadFiltered()" class="fa fa-file-text-o" aria-hidden="true"></i>
+                <i (click)="csvDownloadFiltered()" class="fa fa-file-excel-o" aria-hidden="true"></i>
             </li>
             <li *ngFor="let col of cols">
                 <i class="fa fa-thumb-tack" [ngClass]="{'hidden': !col['pinned']}" aria-hidden="true" (click)="col['pinned']=!col['pinned']"></i>
@@ -29,6 +34,7 @@
                             <span (click)="sortClicked(col)">{{col['name']}}</span>
                             <span *ngIf="i!=0" (click)="moveLeft(i)" class="fa fa-caret-left"></span>
                             <span *ngIf="i!=cols.length-1" (click)="moveRight(i)" class="fa fa-caret-right"></span>
+                            <span (click)="col.visible=false" class="fa fa-times"></span>   
                     </div>
                 </div>
             </div>
@@ -56,6 +62,7 @@
                             <span (click)="sortClicked(col)">{{col['name']}}</span>
                             <span *ngIf="i!=0" (click)="moveLeft(i)" class="fa fa-caret-left"></span>
                             <span *ngIf="i!=cols.length-1" (click)="moveRight(i)" class="fa fa-caret-right"></span>
+                            <span (click)="col.visible=false" class="fa fa-times"></span>                            
                     </div>
                 </div>
             </div>

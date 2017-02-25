@@ -1,15 +1,65 @@
 {
-  "name": "j-ng2-table",
-  "version": "0.1.0",
+  "_args": [
+    [
+      {
+        "raw": "j-ng2-table",
+        "scope": null,
+        "escapedName": "j-ng2-table",
+        "name": "j-ng2-table",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\JosephKhella\\Desktop\\ngui"
+    ]
+  ],
+  "_from": "j-ng2-table@latest",
+  "_id": "j-ng2-table@0.0.11",
+  "_inCache": true,
+  "_location": "/j-ng2-table",
+  "_nodeVersion": "6.9.5",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/j-ng2-table-0.0.11.tgz_1487711877667_0.26253877277486026"
+  },
+  "_npmUser": {
+    "name": "josephskh",
+    "email": "josephskhella@gmail.com"
+  },
+  "_npmVersion": "4.0.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "j-ng2-table",
+    "scope": null,
+    "escapedName": "j-ng2-table",
+    "name": "j-ng2-table",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/j-ng2-table/-/j-ng2-table-0.0.11.tgz",
+  "_shasum": "f6a3edde931d0d984e431cb0c6f07440f7e92d35",
+  "_shrinkwrap": null,
+  "_spec": "j-ng2-table",
+  "_where": "C:\\Users\\JosephKhella\\Desktop\\ngui",
+  "author": {
+    "name": "Joseph Safwat Khella"
+  },
+  "bugs": {
+    "url": "https://github.com/JosephSKh/j-ng2-table/issues"
+  },
+  "dependencies": {},
   "description": "\"j-ng2-table is an open source table library designed for angular 2 that supports a lot of features such as pinning, toggleing, sorting, filtering\"",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "f6a3edde931d0d984e431cb0c6f07440f7e92d35",
+    "tarball": "https://registry.npmjs.org/j-ng2-table/-/j-ng2-table-0.0.11.tgz"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JosephSKh/j-ng2-table.git"
-  },
+  "homepage": "https://github.com/JosephSKh/j-ng2-table#readme",
   "keywords": [
     "ng2",
     "table",
@@ -19,10 +69,23 @@
     "pin",
     "filter"
   ],
-  "author": "Joseph Safwat Khella",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JosephSKh/j-ng2-table/issues"
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "josephskh",
+      "email": "josephskhella@gmail.com"
+    }
+  ],
+  "name": "j-ng2-table",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosephSKh/j-ng2-table.git"
   },
-  "homepage": "https://github.com/JosephSKh/j-ng2-table#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.11"
 }

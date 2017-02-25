@@ -101,6 +101,9 @@
         -ms-user-select: none;
             user-select: none;
 }
+.j-ng2-table-container .th .fa-times{
+    float: right
+}
 .j-ng2-table-container .td:not(:empty){    
     padding: 5px 15px;
     border-right: 1px solid #ddd;
