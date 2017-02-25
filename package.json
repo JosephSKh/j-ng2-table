@@ -14,7 +14,6 @@
     ]
   ],
   "_from": "j-ng2-table@latest",
-  "_id": "j-ng2-table@0.0.11",
   "_inCache": true,
   "_location": "/j-ng2-table",
   "_nodeVersion": "6.9.5",
@@ -45,9 +44,7 @@
   "_shrinkwrap": null,
   "_spec": "j-ng2-table",
   "_where": "C:\\Users\\JosephKhella\\Desktop\\ngui",
-  "author": {
-    "name": "Joseph Safwat Khella"
-  },
+  "author": "Joseph Safwat Khella",
   "bugs": {
     "url": "https://github.com/JosephSKh/j-ng2-table/issues"
   },
@@ -72,14 +69,10 @@
   "license": "MIT",
   "main": "index.js",
   "maintainers": [
-    {
-      "name": "josephskh",
-      "email": "josephskhella@gmail.com"
-    }
+    "josephskh <josephskhella@gmail.com>"
   ],
   "name": "j-ng2-table",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JosephSKh/j-ng2-table.git"
@@ -87,5 +80,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.0.11"
+  "version": "0.0.13"
 }
