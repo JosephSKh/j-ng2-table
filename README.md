@@ -10,7 +10,7 @@ j-ng2-table is an open source table library designed for angular 2 that supports
 **app.module.ts**
 
     import { AppComponent } from './app.component';
-    import { JNG2TableComponent } from './j-ng2-table/j-ng2-table.component';
+    import { JNG2TableComponent } from 'j-ng2-table/j-ng2-table.component';
     @NgModule({
       declarations: [
         AppComponent,
